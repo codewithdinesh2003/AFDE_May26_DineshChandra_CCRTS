@@ -219,19 +219,6 @@ npm run dev
 Frontend runs at: `http://localhost:5173`
 
 ---
-
-## 🔐 Default Login Credentials
-
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | admin@ccrts.com | Admin@123 |
-| Supervisor | supervisor@ccrts.com | Super@123 |
-| Agent 1 | agent1@ccrts.com | Agent@123 |
-| Agent 2 | agent2@ccrts.com | Agent@123 |
-| Customer | customer@ccrts.com | Cust@123 |
-
----
-
 ## 📡 API Endpoints
 
 ### Auth
