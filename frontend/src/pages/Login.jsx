@@ -1,0 +1,79 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Shield } from 'lucide-react'
+import { useAuth } from '../context/AuthContext'
+import { useToast } from '../components/common/Toast'
+import LoadingSpinner from '../components/common/LoadingSpinner'
+
+export default function Login() {
+  const { login } = useAuth()
+  const toast = useToast()
+  const navigate = useNavigate()
+  const [form, setForm] = useState({ email: '', password: '' })
+  const [loading, setLoading] = useState(false)
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setLoading(true)
+    try {
+      await login(form.email, form.password)
+      navigate('/dashboard')
+    } catch (err) {
+      toast(err.response?.data?.detail ?? 'Login failed', 'error')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-[#0a0f1e] flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        <div className="flex flex-col items-center mb-8">
+          <div className="w-14 h-14 rounded-2xl bg-[#2563eb] flex items-center justify-center mb-4 shadow-lg shadow-blue-900/50">
+            <Shield className="w-7 h-7 text-white" />
+          </div>
+          <h1 className="text-2xl font-bold text-white">Welcome back</h1>
+          <p className="text-slate-400 text-sm mt-1">Sign in to CCRTS</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="bg-[#1e293b] border border-slate-700 rounded-2xl p-8 space-y-5">
+          <div>
+            <label className="block text-xs text-slate-400 mb-1.5">Email address</label>
+            <input
+              type="email"
+              required
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full px-4 py-2.5 bg-[#0f172a] border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label className="block text-xs text-slate-400 mb-1.5">Password</label>
+            <input
+              type="password"
+              required
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              className="w-full px-4 py-2.5 bg-[#0f172a] border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+              placeholder="••••••••"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-2.5 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium rounded-lg text-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+          >
+            {loading ? <LoadingSpinner size={18} /> : null}
+            {loading ? 'Signing in…' : 'Sign in'}
+          </button>
+        </form>
+
+        <p className="text-center text-xs text-slate-500 mt-6">
+          Don't have an account?{' '}
+          <a href="/register" className="text-blue-400 hover:text-blue-300">Register</a>
+        </p>
+      </div>
+    </div>
+  )
+}
