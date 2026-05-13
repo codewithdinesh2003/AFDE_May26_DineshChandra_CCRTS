@@ -296,15 +296,14 @@ Frontend runs at: `http://localhost:5173`
 
 ## 📸 Screenshots
 
-> Screenshots are available in the `/screenshots` folder.
 
-- `dashboard.png` — Main dashboard
-- `complaint-list.png` — Complaint table with filters
-- `complaint-detail.png` — Complaint detail with timeline
-- `complaint-create.png` — Create complaint form
-- `reports.png` — Reports dashboard
-- `user-management.png` — Admin user management
-- `postman-api.png` — API testing in Postman
+- <img width="1919" height="893" alt="image" src="https://github.com/user-attachments/assets/2d110920-aa0c-4f7d-9c3e-787efa79c500" /> — Main dashboard
+- <img width="1919" height="887" alt="image" src="https://github.com/user-attachments/assets/cf8ba5a0-4064-48ec-891b-894548d28937" /> — Complaint table with filters
+- <img width="1919" height="883" alt="image" src="https://github.com/user-attachments/assets/adc56c58-e8c8-47be-9a11-254d249ddf6f" /> — Complaint detail with timeline
+- <img width="1919" height="887" alt="image" src="https://github.com/user-attachments/assets/35bd82ff-5657-4101-a10f-a4838c2b6eb9" />  — Create complaint form
+- <img width="1919" height="883" alt="image" src="https://github.com/user-attachments/assets/a9be0854-0654-4fbe-9963-204cdd80aef0" /> — Reports dashboard
+- <img width="1919" height="891" alt="image" src="https://github.com/user-attachments/assets/53505791-5ddf-4274-b8ff-30d0f23f8555" /> — Admin user management
+- <img width="1919" height="892" alt="image" src="https://github.com/user-attachments/assets/8d9f6d81-f88f-4a7d-b964-0c8e2a875616" />  — API testing in fastapi
 
 ---
 
